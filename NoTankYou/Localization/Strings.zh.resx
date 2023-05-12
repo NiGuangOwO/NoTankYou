@@ -51,22 +51,22 @@
         <value>示例模式 - 允许重新定位</value>
     </data>
   <data name="BannerOverlay_SoloMode" xml:space="preserve">
-        <value>单人模式</value>
+        <value>个人模式</value>
     </data>
   <data name="BannerOverlay_SoloModeHelp" xml:space="preserve">
-        <value>仅显示由您生成的警告</value>
+        <value>仅显示关于你的警告</value>
     </data>
   <data name="BannerOverlay_TopPriorityDescription" xml:space="preserve">
         <value>每次只显示一个警告</value>
     </data>
   <data name="BannerOverlay_TopPriorityMode" xml:space="preserve">
-        <value>单次</value>
+        <value>单个</value>
     </data>
   <data name="BannerOverlay_WarningCount" xml:space="preserve">
         <value>玩家人数</value>
     </data>
   <data name="BannerOverlay_WarningText" xml:space="preserve">
-        <value>显示文本</value>
+        <value>显示文字</value>
     </data>
   <data name="Blacklist_Button" xml:space="preserve">
         <value>黑名单设置</value>
@@ -178,7 +178,7 @@
         <value>显示选项</value>
     </data>
   <data name="Labels_Enabled" xml:space="preserve">
-        <value>已启用</value>
+        <value>启用</value>
     </data>
   <data name="Labels_ExtremeUnreal" xml:space="preserve">
         <value>极神和幻巧战</value>
