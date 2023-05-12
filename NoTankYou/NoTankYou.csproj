@@ -30,7 +30,7 @@
 	</Target>
 
 	<PropertyGroup>
-		<DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+		<DalamudLibPath>E:\插件工程\DalamudDep\</DalamudLibPath>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -44,7 +44,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DalamudPackager" Version="2.1.10" />
+		<PackageReference Include="DalamudPackager" Version="2.1.11" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -83,7 +83,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="E:\插件工程\KamiLib\KamiLib.csproj" />
+	  <ProjectReference Include="..\KamiLib\KamiLib.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
