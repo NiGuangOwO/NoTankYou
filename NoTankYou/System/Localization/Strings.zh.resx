@@ -45,7 +45,7 @@
         <value>个人模式</value>
     </data>
   <data name="SoloModeHelp" xml:space="preserve">
-        <value>仅为您生成警告</value>
+        <value>仅生成自己的警告</value>
     </data>
   <data name="DutiesOnly" xml:space="preserve">
         <value>仅副本中</value>
@@ -54,10 +54,10 @@
         <value>只在副本中时生成警告</value>
     </data>
   <data name="HideInSanctuary" xml:space="preserve">
-        <value>在无人岛时隐藏</value>
+        <value>在休息区时隐藏</value>
     </data>
   <data name="HideInSanctuaryHelp" xml:space="preserve">
-        <value>不在主城或集落显示警告</value>
+        <value>在主城或集落时不显示警告</value>
     </data>
   <data name="Priority" xml:space="preserve">
         <value>优先级</value>
@@ -114,7 +114,7 @@
         <value>启用窗口拖动</value>
     </data>
   <data name="Positioning" xml:space="preserve">
-        <value>定位中</value>
+        <value>位置</value>
     </data>
   <data name="Position" xml:space="preserve">
         <value>位置</value>
@@ -145,10 +145,10 @@
         <value>玩家名称</value>
     </data>
   <data name="ActionName" xml:space="preserve">
-        <value>动作名称</value>
+        <value>技能名称</value>
     </data>
   <data name="ActionIcon" xml:space="preserve">
-        <value>动作图标</value>
+        <value>技能图标</value>
     </data>
   <data name="GeneralOptions" xml:space="preserve">
         <value>常规选项</value>
@@ -166,7 +166,7 @@
         <value>贤者心关</value>
     </data>
   <data name="ScholarFaerie" xml:space="preserve">
-        <value>学者仙女</value>
+        <value>学者小仙女</value>
     </data>
   <data name="SummonerPet" xml:space="preserve">
         <value>召唤宝石兽</value>
@@ -208,7 +208,7 @@
         <value>极神和幻巧战</value>
     </data>
   <data name="Criterion" xml:space="preserve">
-        <value>异闻</value>
+        <value>异闻迷宫</value>
     </data>
   <data name="EnableZoneFilter" xml:space="preserve">
         <value>启用区域过滤器</value>
@@ -223,7 +223,7 @@
         <value>没吃食物</value>
     </data>
   <data name="SpiritBondWarning" xml:space="preserve">
-        <value>缺少精炼度</value>
+        <value>缺少精炼药</value>
     </data>
   <data name="EarlyWarning" xml:space="preserve">
         <value>启用提前警告</value>
@@ -259,7 +259,7 @@
         <value>第二个Buff</value>
     </data>
   <data name="FreeCompanyModeHelp" xml:space="preserve">
-        <value>任意 - 如果您没有任意的部队特效
+        <value>任意 - 如果您没有任意的部队特效，则生成警告
 特定 - 如果您没有特定的部队特效，则生成警告</value>
     </data>
   <data name="FreeCompanyBuffCountHelp" xml:space="preserve">
@@ -309,7 +309,7 @@
         <value>黑名单区域</value>
     </data>
   <data name="NothingBlacklisted" xml:space="preserve">
-        <value>没有黑名单</value>
+        <value>黑名单为空</value>
     </data>
   <data name="DisableInAllianceRaidHelp" xml:space="preserve">
         <value>在团队任务中阻止生成任何警告。</value>
