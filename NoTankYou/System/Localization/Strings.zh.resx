@@ -18,322 +18,322 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EnableModuleHelp" xml:space="preserve">
-        <value>Enable Module</value>
+        <value>启用模块</value>
     </data>
   <data name="DisableModuleHelp" xml:space="preserve">
-        <value>Disable Module</value>
+        <value>禁用模块</value>
     </data>
   <data name="ToggleModuleHelp" xml:space="preserve">
-        <value>Toggle Module</value>
+        <value>切换模块</value>
     </data>
   <data name="Command" xml:space="preserve">
-        <value>Command</value>
+        <value>指令</value>
     </data>
   <data name="Enabling" xml:space="preserve">
-        <value>Enabling</value>
+        <value>正在启用</value>
     </data>
   <data name="Disabling" xml:space="preserve">
-        <value>Disabling</value>
+        <value>正在禁用</value>
     </data>
   <data name="Enable" xml:space="preserve">
-        <value>Enable</value>
+        <value>启用</value>
     </data>
   <data name="Options" xml:space="preserve">
-        <value>Options</value>
+        <value>选项</value>
     </data>
   <data name="SoloMode" xml:space="preserve">
-        <value>Solo Mode</value>
+        <value>个人模式</value>
     </data>
   <data name="SoloModeHelp" xml:space="preserve">
-        <value>Only generate warnings for you</value>
+        <value>仅为您生成警告</value>
     </data>
   <data name="DutiesOnly" xml:space="preserve">
-        <value>Duties Only</value>
+        <value>仅副本中</value>
     </data>
   <data name="DutiesOnlyHelp" xml:space="preserve">
-        <value>Only generate warnings while in a duty</value>
+        <value>只在副本中时生成警告</value>
     </data>
   <data name="HideInSanctuary" xml:space="preserve">
-        <value>Hide in Sanctuaries</value>
+        <value>在无人岛时隐藏</value>
     </data>
   <data name="HideInSanctuaryHelp" xml:space="preserve">
-        <value>Do not show warnings in towns or outposts</value>
+        <value>不在主城或集落显示警告</value>
     </data>
   <data name="Priority" xml:space="preserve">
-        <value>Priority</value>
+        <value>优先级</value>
     </data>
   <data name="PriorityHelp" xml:space="preserve">
-        <value>Controls the order that warnings will appear if multiple warnings are generated</value>
+        <value>如果生成多个警告，则控制警告出现的顺序</value>
     </data>
   <data name="CustomWarning" xml:space="preserve">
-        <value>Custom Label</value>
+        <value>自定义标签</value>
     </data>
   <data name="CustomWarningText" xml:space="preserve">
-        <value>Warning Text</value>
+        <value>警告文本</value>
     </data>
   <data name="DisplayOptions" xml:space="preserve">
-        <value>Display Options</value>
+        <value>显示选项</value>
     </data>
   <data name="DisableInAllianceRaid" xml:space="preserve">
-        <value>Disable in Alliance Raid</value>
+        <value>在团队任务中禁用</value>
     </data>
   <data name="TopPriority" xml:space="preserve">
-        <value>Top Priority</value>
+        <value>最高优先级</value>
     </data>
   <data name="List" xml:space="preserve">
-        <value>List</value>
+        <value>列表</value>
     </data>
   <data name="Tank" xml:space="preserve">
-        <value>Tank</value>
+        <value>坦克</value>
     </data>
   <data name="BlueMage" xml:space="preserve">
-        <value>Blue Mage</value>
+        <value>青魔</value>
     </data>
   <data name="Dancer" xml:space="preserve">
-        <value>Dancer</value>
+        <value>舞者</value>
     </data>
   <data name="Food" xml:space="preserve">
-        <value>Food</value>
+        <value>食物</value>
     </data>
   <data name="Sage" xml:space="preserve">
-        <value>Sage</value>
+        <value>贤者</value>
     </data>
   <data name="Scholar" xml:space="preserve">
-        <value>Scholar</value>
+        <value>学者</value>
     </data>
   <data name="Summoner" xml:space="preserve">
-        <value>Summoner</value>
+        <value>召唤</value>
     </data>
   <data name="Chocobo" xml:space="preserve">
-        <value>Chocobo</value>
+        <value>陆行鸟</value>
     </data>
   <data name="SampleMode" xml:space="preserve">
-        <value>Preview Mode</value>
+        <value>预览模式</value>
     </data>
   <data name="WindowDragging" xml:space="preserve">
-        <value>Enable Window Dragging</value>
+        <value>启用窗口拖动</value>
     </data>
   <data name="Positioning" xml:space="preserve">
-        <value>Positioning</value>
+        <value>定位中</value>
     </data>
   <data name="Position" xml:space="preserve">
-        <value>Position</value>
+        <value>位置</value>
     </data>
   <data name="Scale" xml:space="preserve">
-        <value>Scale</value>
+        <value>缩放</value>
     </data>
   <data name="DisplayMode" xml:space="preserve">
-        <value>Display Mode</value>
+        <value>显示模式</value>
     </data>
   <data name="MaxWarnings" xml:space="preserve">
-        <value>Max Warnings</value>
+        <value>最大警告数</value>
     </data>
   <data name="DisplayModeHelp" xml:space="preserve">
-        <value>List shows multiple warnings at the same time, up to the specified max warnings
-Top Priority will only show one warning at a time</value>
+        <value>列表同时显示多个警告，直到指定的最多显示警告数
+最高优先级只显示一个警告</value>
     </data>
   <data name="DisplayStyle" xml:space="preserve">
-        <value>Display Style</value>
+        <value>显示样式</value>
     </data>
   <data name="WarningShield" xml:space="preserve">
-        <value>Warning Shield</value>
+        <value>警告盾牌</value>
     </data>
   <data name="WarningText" xml:space="preserve">
-        <value>Warning Text</value>
+        <value>警告文本</value>
     </data>
   <data name="PlayerNames" xml:space="preserve">
-        <value>Player Names</value>
+        <value>玩家名称</value>
     </data>
   <data name="ActionName" xml:space="preserve">
-        <value>Action Name</value>
+        <value>动作名称</value>
     </data>
   <data name="ActionIcon" xml:space="preserve">
-        <value>Action Icon</value>
+        <value>动作图标</value>
     </data>
   <data name="GeneralOptions" xml:space="preserve">
-        <value>General Options</value>
+        <value>常规选项</value>
     </data>
   <data name="WaitForDutyStart" xml:space="preserve">
-        <value>Wait For Duty Start</value>
+        <value>等待任务开始</value>
     </data>
   <data name="WaitForDutyStartHelp" xml:space="preserve">
-        <value>Prevents warnings from showing until "Duty Commenced" appears</value>
+        <value>阻止显示警告直到“使命开始！”</value>
     </data>
   <data name="DancePartner" xml:space="preserve">
-        <value>Dance Partner</value>
+        <value>舞伴</value>
     </data>
   <data name="SageKardion" xml:space="preserve">
-        <value>Sage Kardion</value>
+        <value>贤者心关</value>
     </data>
   <data name="ScholarFaerie" xml:space="preserve">
-        <value>Scholar Faerie</value>
+        <value>学者仙女</value>
     </data>
   <data name="SummonerPet" xml:space="preserve">
-        <value>Summoner Pet</value>
+        <value>召唤宝石兽</value>
     </data>
   <data name="TankStance" xml:space="preserve">
-        <value>Tank Stance</value>
+        <value>坦克盾姿</value>
     </data>
   <data name="ModuleOptions" xml:space="preserve">
-        <value>Module Options</value>
+        <value>模块选项</value>
     </data>
   <data name="CheckAllianceTanks" xml:space="preserve">
-        <value>Include Alliance Tanks</value>
+        <value>包括团队坦克</value>
     </data>
   <data name="BannerOverlay" xml:space="preserve">
-        <value>Banner Overlay</value>
+        <value>横幅覆盖层</value>
     </data>
   <data name="General" xml:space="preserve">
-        <value>General</value>
+        <value>常规</value>
     </data>
   <data name="Modules" xml:space="preserve">
-        <value>Modules</value>
+        <value>模块</value>
     </data>
   <data name="SpiritBond" xml:space="preserve">
-        <value>Spiritbond</value>
+        <value>精炼度</value>
     </data>
   <data name="ZoneFilter" xml:space="preserve">
-        <value>Zone Filter</value>
+        <value>区域过滤器</value>
     </data>
   <data name="ZoneFilterDescription" xml:space="preserve">
-        <value>Generate warnings only in enabled zones</value>
+        <value>仅在启用区域中生成警告</value>
     </data>
   <data name="Savage" xml:space="preserve">
-        <value>Savage</value>
+        <value>零式</value>
     </data>
   <data name="Ultimate" xml:space="preserve">
-        <value>Ultimate</value>
+        <value>绝境战</value>
     </data>
   <data name="ExtremeUnreal" xml:space="preserve">
-        <value>Extreme &amp; Unreal</value>
+        <value>极神和幻巧战</value>
     </data>
   <data name="Criterion" xml:space="preserve">
-        <value>Criterion</value>
+        <value>异闻</value>
     </data>
   <data name="EnableZoneFilter" xml:space="preserve">
-        <value>Enable Zone Filter</value>
+        <value>启用区域过滤器</value>
     </data>
   <data name="SuppressInCombat" xml:space="preserve">
-        <value>Suppress in Combat</value>
+        <value>在战斗中不显示</value>
     </data>
   <data name="EarlyWarningTime" xml:space="preserve">
-        <value>Early Warning Time (seconds)</value>
+        <value>提前警告时间 (秒)</value>
     </data>
   <data name="FoodWarning" xml:space="preserve">
-        <value>Food Missing</value>
+        <value>没吃食物</value>
     </data>
   <data name="SpiritBondWarning" xml:space="preserve">
-        <value>Spiritbond Missing</value>
+        <value>缺少精炼度</value>
     </data>
   <data name="EarlyWarning" xml:space="preserve">
-        <value>Enable Early Warning</value>
+        <value>启用提前警告</value>
     </data>
   <data name="OpenConfigWindow" xml:space="preserve">
-        <value>Open Configuration Window</value>
+        <value>打开配置窗口</value>
     </data>
   <data name="Enabled" xml:space="preserve">
-        <value>Enabled</value>
+        <value>已启用</value>
     </data>
   <data name="Disabled" xml:space="preserve">
-        <value>Disabled</value>
+        <value>已禁用</value>
     </data>
   <data name="FreeCompany" xml:space="preserve">
-        <value>Free Company</value>
+        <value>部队</value>
     </data>
   <data name="Any" xml:space="preserve">
-        <value>Any</value>
+        <value>任意</value>
     </data>
   <data name="Specific" xml:space="preserve">
-        <value>Specific</value>
+        <value>特定</value>
     </data>
   <data name="ModeSelect" xml:space="preserve">
-        <value>Mode Select</value>
+        <value>模式选择</value>
     </data>
   <data name="BuffCount" xml:space="preserve">
-        <value>Buff Count</value>
+        <value>Buff数量</value>
     </data>
   <data name="FirstBuff" xml:space="preserve">
-        <value>First Buff</value>
+        <value>第一个Buff</value>
     </data>
   <data name="SecondBuff" xml:space="preserve">
-        <value>Second Buff</value>
+        <value>第二个Buff</value>
     </data>
   <data name="FreeCompanyModeHelp" xml:space="preserve">
-        <value>Any - Generate warnings if you do not have any Free Company Buffs
-Specific - Generate warnings if you do not have the specified Free Company Buffs</value>
+        <value>任意 - 如果您没有任意的部队特效
+特定 - 如果您没有特定的部队特效，则生成警告</value>
     </data>
   <data name="FreeCompanyBuffCountHelp" xml:space="preserve">
-        <value>1 - Generate warnings if you do not have the "First Buff"
-2 - Generate warnings if you do not have the "First Buff" and "Second Buff"</value>
+        <value>1 - 如果您没有"第一个Buff"则生成警告
+2 - 如果您没有"第一个Buff" 和 "第二个Buff" 则生成警告</value>
     </data>
   <data name="FreeCompanyBuff" xml:space="preserve">
-        <value>Free Company Buff</value>
+        <value>部队特效</value>
     </data>
   <data name="AdditionalSpacing" xml:space="preserve">
-        <value>Additional Spacing</value>
+        <value>附加间距</value>
     </data>
   <data name="MightyGuard" xml:space="preserve">
-        <value>Mighty Guard</value>
+        <value>强力守护</value>
     </data>
   <data name="ChocoboMissing" xml:space="preserve">
-        <value>Chocobo Missing</value>
+        <value>缺少陆行鸟</value>
     </data>
   <data name="Default" xml:space="preserve">
-        <value>Default</value>
+        <value>默认</value>
     </data>
   <data name="DisplayColors" xml:space="preserve">
-        <value>Display Colors</value>
+        <value>显示颜色</value>
     </data>
   <data name="TextColor" xml:space="preserve">
-        <value>Text Color</value>
+        <value>文本颜色</value>
     </data>
   <data name="OutlineColor" xml:space="preserve">
-        <value>Outline Color</value>
+        <value>轮廓颜色</value>
     </data>
   <data name="JobIcon" xml:space="preserve">
-        <value>Job Icon</value>
+        <value>职业图标</value>
     </data>
   <data name="Animation" xml:space="preserve">
-        <value>Flashing Effects</value>
+        <value>闪烁效果</value>
     </data>
   <data name="AnimationPeriod" xml:space="preserve">
-        <value>Flashing Period (milliseconds)</value>
+        <value>闪烁周期 (毫秒)</value>
     </data>
   <data name="Blacklist" xml:space="preserve">
-        <value>Blacklist</value>
+        <value>黑名单</value>
     </data>
   <data name="Search" xml:space="preserve">
-        <value>Search...</value>
+        <value>搜索...</value>
     </data>
   <data name="BlacklistedZones" xml:space="preserve">
-        <value>Blacklisted Zones</value>
+        <value>黑名单区域</value>
     </data>
   <data name="NothingBlacklisted" xml:space="preserve">
-        <value>Nothing Blacklisted</value>
+        <value>没有黑名单</value>
     </data>
   <data name="DisableInAllianceRaidHelp" xml:space="preserve">
-        <value>Prevents generating any warnings while in an Alliance Raid.</value>
+        <value>在团队任务中阻止生成任何警告。</value>
     </data>
   <data name="CheckAllianceTanksHelp" xml:space="preserve">
-        <value>Generate warnings if none of the tanks in any any alliance have their stance on</value>
+        <value>在任意团队中如果他们没有坦克盾姿，则生成警告</value>
     </data>
   <data name="ModuleBlacklist" xml:space="preserve">
-        <value>Module Blacklist</value>
+        <value>模块黑名单</value>
     </data>
   <data name="ModuleBlacklistInfo" xml:space="preserve">
-        <value>Toggle to prevent warnings from selected modules from appearing.</value>
+        <value>切换以防止所选模块显示警告。</value>
     </data>
   <data name="SuppressingWarnings" xml:space="preserve">
-        <value>Suppressing {0} Warnings for: {1}</value>
+        <value>阻止 {0} 警告: {1}</value>
         <comment>{0} represents the module name, {1} represents a playername</comment>
     </data>
   <data name="SuppressModuleHelp" xml:space="preserve">
-        <value>Suppress current warnings from players for this module until next zone change</value>
+        <value>在下一次区域变更之前，禁止该模块对玩家发出当前警告</value>
     </data>
   <data name="HelpText" xml:space="preserve">
-        <value>Show this help message</value>
+        <value>显示此帮助信息</value>
     </data>
   <data name="WindowDraggingEnabled" xml:space="preserve">
-        <value>Window Dragging Enabled</value>
+        <value>窗口拖动已启用</value>
     </data>
 </root>
