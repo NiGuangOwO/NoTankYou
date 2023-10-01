@@ -24,12 +24,12 @@ public class BannerController : IDisposable
 
     private readonly WarningState sampleWarning = new()
     {
-        Message = "Sample Warning",
+        Message = "警告样例",
         Priority = 100,
         IconId = 786,
-        IconLabel = "Sample Action",
+        IconLabel = "技能样例",
         SourceObjectId = 0xE0000000,
-        SourcePlayerName = "Sample Player",
+        SourcePlayerName = "玩家样例",
         SourceModule = ModuleName.Test
     };
     
@@ -95,7 +95,7 @@ public class BannerController : IDisposable
 
         if (config.SampleMode)
         {
-            DrawUtilities.TextOutlined(config.WindowPosition + infoTextOffset, "Open NoTankYou Settings to Configure Warnings", 0.5f * config.Scale, KnownColor.White);
+            DrawUtilities.TextOutlined(config.WindowPosition + infoTextOffset, "打开NoTankYou设置以配置警告", 0.5f * config.Scale, KnownColor.White);
         }
 
         if (config.CanDrag)

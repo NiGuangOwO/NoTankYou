@@ -18,12 +18,12 @@ public class PartyListController : IDisposable
 
     private static WarningState SampleWarning => new()
     {
-        Message = "NoTankYou Sample Warning",
+        Message = "NoTankYou警告样例",
         Priority = 100,
         IconId = 786,
-        IconLabel = "Sample Action",
+        IconLabel = "技能样例",
         SourceObjectId = Service.ClientState.LocalPlayer?.ObjectId ?? 0xE000000,
-        SourcePlayerName = "Sample Player",
+        SourcePlayerName = "玩家样例",
         SourceModule = ModuleName.Test,
     };
 

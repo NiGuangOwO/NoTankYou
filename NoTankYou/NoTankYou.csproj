@@ -3,9 +3,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<Version>1.0</Version>
-		<AssemblyVersion>6.0.0.9</AssemblyVersion>
+		<AssemblyVersion>6.0.0.10</AssemblyVersion>
 		<Description>Dalamud Plugin to show a warning if no tanks have their tank stances on</Description>
-		<PackageProjectUrl>https://github.com/MidoriKami/NoTankYou.git</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/NiGuangOwO/NoTankYou.git</PackageProjectUrl>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -30,7 +30,7 @@
 	</Target>
 
 	<PropertyGroup>
-		<DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+		<DalamudLibPath>E:\xivlauncher-cn\XIVLauncherCN\Roaming\addon\Hooks\dev\</DalamudLibPath>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -44,7 +44,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DalamudPackager" Version="2.1.10" />
+		<PackageReference Include="DalamudPackager" Version="2.1.11" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -13,7 +13,7 @@ public class ConfigurationWindow : TabbedSelectionWindow
     private readonly List<ISelectionWindowTab> tabs;
     private readonly List<ITabItem> regularTabs;
     
-    public ConfigurationWindow() : base("NoTankYou - Configuration Window", 50.0f, 150.0f)
+    public ConfigurationWindow() : base("NoTankYou - 配置窗口", 50.0f, 150.0f)
     {
         tabs = new List<ISelectionWindowTab>(Reflection.ActivateOfInterface<ISelectionWindowTab>());
         regularTabs = new List<ITabItem>(Reflection.ActivateOfInterface<ITabItem>());
