@@ -337,27 +337,27 @@
         <value>窗口拖动已启用</value>
     </data>
   <data name="Gatherers" xml:space="preserve">
-        <value>Gatherers</value>
+        <value>采集职业</value>
     </data>
   <data name="JobWarnings" xml:space="preserve">
-        <value>Job Based Warnings</value>
+        <value>基于职业的警告</value>
     </data>
   <data name="Miner" xml:space="preserve">
-        <value>Miner</value>
+        <value>采矿工</value>
     </data>
   <data name="Botanist" xml:space="preserve">
-        <value>Botanist</value>
+        <value>园艺工</value>
     </data>
   <data name="Fisher" xml:space="preserve">
-        <value>Fisher</value>
+        <value>捕鱼人</value>
     </data>
   <data name="StatusMissing" xml:space="preserve">
-        <value>DoH Status Missing</value>
+        <value>能工巧匠缺少状态</value>
     </data>
   <data name="CollectorsGlove" xml:space="preserve">
-        <value>Collectors Glove</value>
+        <value>收藏品采集</value>
     </data>
   <data name="ShowTimeRemaining" xml:space="preserve">
-        <value>Show Time Remaining</value>
+        <value>显示剩余时间</value>
     </data>
 </root>
