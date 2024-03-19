@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using KamiLib.Utilities;
+using KamiLib.Utility;
 using NoTankYou.Abstracts;
 using NoTankYou.DataModels;
 
@@ -9,13 +9,8 @@ namespace NoTankYou.System;
 
 public class ModuleController : IDisposable
 {
-    public List<ModuleBase> Modules { get; }
-    
-    public ModuleController()
-    {
-        Modules = new List<ModuleBase>(Reflection.ActivateOfType<ModuleBase>());
-    }
-    
+    public List<ModuleBase> Modules { get; } = new(Reflection.ActivateOfType<ModuleBase>());
+
     public void Dispose()
     {
         foreach (var module in Modules.OfType<IDisposable>())

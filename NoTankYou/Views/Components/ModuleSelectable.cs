@@ -1,7 +1,8 @@
 ﻿using System.Drawing;
+using Dalamud.Interface;
 using ImGuiNET;
 using KamiLib.Interfaces;
-using KamiLib.Utilities;
+using KamiLib.Utility;
 using NoTankYou.Abstracts;
 using NoTankYou.Localization;
 
@@ -10,7 +11,7 @@ namespace NoTankYou.Views.Components;
 public class ModuleSelectable : ISelectable, IDrawable
 {
     public IDrawable Contents => this;
-    public string ID => module.ModuleName.GetLabel();
+    public string ID => module.ModuleName.Label();
 
     private readonly ModuleBase module;
     
@@ -21,11 +22,11 @@ public class ModuleSelectable : ISelectable, IDrawable
     
     public void DrawLabel()
     {
-        ImGui.TextUnformatted(module.ModuleName.GetLabel());
+        ImGui.TextUnformatted(module.ModuleName.Label());
         
         var region = ImGui.GetContentRegionAvail();
         
-        var textColor = module.ModuleConfig.Enabled ? KnownColor.ForestGreen.AsVector4() : KnownColor.OrangeRed.AsVector4();
+        var textColor = module.ModuleConfig.Enabled ? KnownColor.ForestGreen.Vector() : KnownColor.OrangeRed.Vector();
         var text = module.ModuleConfig.Enabled ? Strings.Enabled : Strings.Disabled;
 
         var textSize = ImGui.CalcTextSize(text);

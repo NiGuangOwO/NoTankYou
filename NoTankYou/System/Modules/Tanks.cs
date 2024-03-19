@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
 using FFXIVClientStructs.FFXIV.Client.Game.Group;
-using KamiLib.AutomaticUserInterface;
-using KamiLib.Caching;
-using KamiLib.Utilities;
+using FFXIVClientStructs.Interop;
+using KamiLib.Game;
 using Lumina.Excel.GeneratedSheets;
 using NoTankYou.Abstracts;
 using NoTankYou.Localization;
@@ -18,7 +17,7 @@ public unsafe class Tanks : ModuleBase
 {
     public override ModuleName ModuleName => ModuleName.Tanks;
     public override IModuleConfigBase ModuleConfig { get; protected set; } = new TankConfiguration();
-    public override string DefaultWarningText { get; protected set; } = Strings.TankStance;
+    protected override string DefaultWarningText { get; } = Strings.TankStance;
 
     private readonly uint[] tankClassJobArray = LuminaCache<ClassJob>.Instance
         .Where(job => job.Role is 1)
@@ -65,7 +64,7 @@ public unsafe class Tanks : ModuleBase
     
     private bool PartyHasStance()
     {
-        foreach (var partyMember in PartyMemberSpan)
+        foreach (var partyMember in PartyMemberSpan.PointerEnumerator())
         {
             IPlayerData playerData = new PartyMemberPlayerData(partyMember);
 
@@ -78,9 +77,9 @@ public unsafe class Tanks : ModuleBase
 
     private bool AllianceHasStance()
     {
-        foreach (var partyMember in GroupManager.Instance()->AllianceMembersSpan)
+        foreach (var partyMember in GroupManager.Instance()->AllianceMembersSpan.PointerEnumerator())
         {
-            if (partyMember.ObjectID is 0xE0000000) continue;
+            if (partyMember->ObjectID is 0xE0000000) continue;
             
             IPlayerData playerData = new PartyMemberPlayerData(partyMember);
 

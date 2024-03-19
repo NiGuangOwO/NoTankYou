@@ -3,7 +3,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<Version>1.0</Version>
-		<AssemblyVersion>6.0.0.10</AssemblyVersion>
+		<AssemblyVersion>6.0.3.0</AssemblyVersion>
 		<Description>Dalamud Plugin to show a warning if no tanks have their tank stances on</Description>
 		<PackageProjectUrl>https://github.com/NiGuangOwO/NoTankYou.git</PackageProjectUrl>
 	</PropertyGroup>
@@ -37,6 +37,7 @@
 		<None Remove="NoTankYou.json" />
 		<None Remove="README.md" />
 		<None Remove="..\.editorconfig" />
+		<None Remove="packages.lock.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -44,7 +45,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DalamudPackager" Version="2.1.11" />
+		<PackageReference Include="DalamudPackager" Version="2.1.12" />
 	</ItemGroup>
 
 	<ItemGroup>

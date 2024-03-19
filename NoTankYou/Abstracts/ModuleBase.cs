@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Dalamud.Game.ClientState.Conditions;
-using Dalamud.Logging;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.Game;
 using FFXIVClientStructs.FFXIV.Client.Game.Character;
 using FFXIVClientStructs.FFXIV.Client.Game.Group;
 using FFXIVClientStructs.FFXIV.Component.GUI;
-using KamiLib.Atk;
+using FFXIVClientStructs.Interop;
 using KamiLib.AutomaticUserInterface;
-using KamiLib.Caching;
-using KamiLib.ChatCommands;
-using KamiLib.Commands;
-using KamiLib.Utilities;
+using KamiLib.Command;
+using KamiLib.FileIO;
+using KamiLib.Game;
+using KamiLib.NativeUi;
+using KamiLib.System;
+using KamiLib.Utility;
 using NoTankYou.DataModels;
 using NoTankYou.Localization;
 using NoTankYou.Models;
@@ -21,7 +23,6 @@ using NoTankYou.Models.Enums;
 using NoTankYou.Models.Interfaces;
 using NoTankYou.System;
 using Action = Lumina.Excel.GeneratedSheets.Action;
-using Condition = KamiLib.GameState.Condition;
 
 namespace NoTankYou.Abstracts;
 
@@ -29,12 +30,15 @@ public abstract unsafe class ModuleBase : IDisposable
 {
     public abstract ModuleName ModuleName { get; }
     public abstract IModuleConfigBase ModuleConfig { get; protected set; }
-    public abstract string DefaultWarningText { get; protected set; }
+    protected abstract string DefaultWarningText { get; }
+    protected string ExtraWarningText { get; set; } = string.Empty;
     protected abstract bool ShouldEvaluate(IPlayerData playerData);
     protected abstract void EvaluateWarnings(IPlayerData playerData);
-    protected List<ulong> SuppressedObjectIds = new();
+    
+    private readonly HashSet<ulong> suppressedObjectIds = new();
+    private readonly Dictionary<ulong, Stopwatch> suppressionTimer = new();
 
-    private AtkUnitBase* NameplateAddon => (AtkUnitBase*)Service.GameGui.GetAddonByName("NamePlate");
+    private static AtkUnitBase* NameplateAddon => (AtkUnitBase*)Service.GameGui.GetAddonByName("NamePlate");
     
     private readonly DeathTracker deathTracker = new();
     
@@ -79,7 +83,7 @@ public abstract unsafe class ModuleBase : IDisposable
         }
         else
         {
-            foreach (var partyMember in PartyMemberSpan)
+            foreach (var partyMember in PartyMemberSpan.PointerEnumerator())
             {
                 ProcessPlayer(new PartyMemberPlayerData(partyMember));
             }
@@ -88,17 +92,43 @@ public abstract unsafe class ModuleBase : IDisposable
     
     private void ProcessPlayer(IPlayerData player)
     {
-        if (ConditionNotAllowed()) return;
         if (player.GetObjectId() is 0xE0000000 or 0) return;
+        if (HasDisallowedCondition()) return;
+        if (HasDisallowedStatus(player)) return;
         if (deathTracker.IsDead(player)) return;
         if (!ShouldEvaluate(player)) return;
-        if (SuppressedObjectIds.Contains(player.GetObjectId())) return;
+        if (suppressedObjectIds.Contains(player.GetObjectId())) return;
 
         EvaluateWarnings(player);
+        EvaluateAutoSuppression(player);
     }
 
-    private static bool ConditionNotAllowed() 
-        => Condition.Any(ConditionFlag.Jumping61,
+    private void EvaluateAutoSuppression(IPlayerData player) {
+        if (NoTankYouSystem.SystemConfig.AutoSuppress) {
+            if (Service.ClientState.LocalPlayer is { ObjectId: var playerObjectId } && playerObjectId == player.GetObjectId()) {
+                return; // Do not allow auto suppression for the user.
+            }
+            
+            suppressionTimer.TryAdd(player.GetObjectId(), Stopwatch.StartNew());
+            if (suppressionTimer.TryGetValue(player.GetObjectId(), out var timer)) {
+                if (HasWarnings) {
+                    if (timer.Elapsed.TotalSeconds >= NoTankYouSystem.SystemConfig.AutoSuppressTime) {
+                        suppressedObjectIds.Add(player.GetObjectId());
+                        Service.Log.Warning($"[{ModuleName}]: Adding {player.GetName()} to auto-suppression list");
+                    }
+                }
+                else {
+                    timer.Restart();
+                }
+            }
+        }
+    }
+
+    private bool HasDisallowedStatus(IPlayerData player)
+        => player.HasStatus(1534);
+
+    private static bool HasDisallowedCondition() 
+        => Service.Condition.Any(ConditionFlag.Jumping61,
             ConditionFlag.Transformed,
             ConditionFlag.InThisState89);
 
@@ -106,18 +136,18 @@ public abstract unsafe class ModuleBase : IDisposable
     
     public void Load()
     {
-        PluginLog.Debug($"[{ModuleName}] Loading Module");
+        Service.Log.Debug($"[{ModuleName}] Loading Module");
         ModuleConfig = LoadConfig();
     }
 
     public void Unload()
     {
-        PluginLog.Debug($"[{ModuleName}] Unloading Module");
+        Service.Log.Debug($"[{ModuleName}] Unloading Module");
     }
     
-    public void ZoneChange(ushort newZoneId) => SuppressedObjectIds.Clear();
+    public void ZoneChange(ushort _) => suppressedObjectIds.Clear();
 
-    protected Span<PartyMember> PartyMemberSpan => new(GroupManager.Instance()->PartyMembers, GroupManager.Instance()->MemberCount);
+    protected static Span<PartyMember> PartyMemberSpan => new(GroupManager.Instance()->PartyMembers, GroupManager.Instance()->MemberCount);
 
     protected T GetConfig<T>() where T : IModuleConfigBase
     {
@@ -131,7 +161,7 @@ public abstract unsafe class ModuleBase : IDisposable
         Priority = ModuleConfig.Priority,
         IconId = LuminaCache<Action>.Instance.GetRow(actionId)!.Icon,
         IconLabel = LuminaCache<Action>.Instance.GetRow(actionId)!.Name.ToDalamudString().ToString(),
-        Message = ModuleConfig.CustomWarning ? ModuleConfig.CustomWarningText : DefaultWarningText,
+        Message = (ModuleConfig.CustomWarning ? ModuleConfig.CustomWarningText : DefaultWarningText) + ExtraWarningText,
         SourcePlayerName = playerData.GetName(),
         SourceObjectId = playerData.GetObjectId(),
         SourceModule = ModuleName,
@@ -142,7 +172,7 @@ public abstract unsafe class ModuleBase : IDisposable
         Priority = ModuleConfig.Priority,
         IconId = iconId,
         IconLabel = iconLabel,
-        Message = ModuleConfig.CustomWarning ? ModuleConfig.CustomWarningText : DefaultWarningText,
+        Message = (ModuleConfig.CustomWarning ? ModuleConfig.CustomWarningText : DefaultWarningText) + ExtraWarningText,
         SourcePlayerName = playerData.GetName(),
         SourceObjectId = playerData.GetObjectId(),
         SourceModule = ModuleName,
@@ -189,10 +219,10 @@ public abstract unsafe class ModuleBase : IDisposable
 
         foreach (var warningPlayer in ActiveWarningStates)
         {
-            SuppressedObjectIds.Add(warningPlayer.SourceObjectId);
-            Chat.Print(Strings.Command, string.Format(Strings.SuppressingWarnings, ModuleName.GetLabel(), warningPlayer.SourcePlayerName));
+            suppressedObjectIds.Add(warningPlayer.SourceObjectId);
+            Chat.Print(Strings.Command, string.Format(Strings.SuppressingWarnings, ModuleName.Label(), warningPlayer.SourcePlayerName));
         }
     }
 
-    private void PrintConfirmation() => Chat.Print(Strings.Command, ModuleConfig.Enabled ? $"{Strings.Enabling} {ModuleName.GetLabel()}" : $"{Strings.Disabling} {ModuleName.GetLabel()}");
+    private void PrintConfirmation() => Chat.Print(Strings.Command, ModuleConfig.Enabled ? $"{Strings.Enabling} {ModuleName.Label()}" : $"{Strings.Disabling} {ModuleName.Label()}");
 }

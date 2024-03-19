@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using DailyDuty.Models;
-using Dalamud.Game;
 using Dalamud.Interface.GameFonts;
-using Dalamud.Logging;
+using Dalamud.Plugin.Services;
 using KamiLib.AutomaticUserInterface;
-using KamiLib.Utilities;
+using KamiLib.FileIO;
 using NoTankYou.DataModels;
 using NoTankYou.Utilities;
 
@@ -36,7 +35,7 @@ public class NoTankYouSystem : IDisposable
         
         if (Service.ClientState.IsLoggedIn)
         {
-            OnLogin(this, EventArgs.Empty);
+            OnLogin();
         }
         
         Service.Framework.Update += OnFrameworkUpdate;
@@ -66,7 +65,7 @@ public class NoTankYouSystem : IDisposable
 
     public void DrawConfig() => DrawableAttribute.DrawAttributes(SystemConfig, SaveSystemConfig);
 
-    private void OnFrameworkUpdate(Framework framework)
+    private void OnFrameworkUpdate(IFramework framework)
     {
         if (Service.ClientState.IsPvP) return;
         if (!Service.ClientState.IsLoggedIn) return;
@@ -77,9 +76,12 @@ public class NoTankYouSystem : IDisposable
         PartyListController.Update();
     }
     
-    private void OnLogin(object? sender, EventArgs e)
+    private void OnLogin()
     {
         LoadSystemConfig();
+        if (SystemConfig.AutoSuppress) {
+            Service.Log.Warning($"User Enabled AutoSuppression. Warnings will automatically be silenced after being active for {SystemConfig.AutoSuppressTime} seconds");
+        }
         
         BlacklistController.Load();
         ModuleController.Load();
@@ -87,7 +89,7 @@ public class NoTankYouSystem : IDisposable
         PartyListController.Load();
     }
     
-    private void OnLogout(object? sender, EventArgs e)
+    private void OnLogout()
     {
         BlacklistController.Unload();
         ModuleController.Unload();
@@ -104,7 +106,7 @@ public class NoTankYouSystem : IDisposable
         PartyListController.Draw(activeWarnings);
     }
     
-    private void OnZoneChange(object? sender, ushort newZoneId)
+    private void OnZoneChange(ushort newZoneId)
     {
         if (Service.ClientState.IsPvP) return;
         if (!Service.ClientState.IsLoggedIn) return;
@@ -116,7 +118,7 @@ public class NoTankYouSystem : IDisposable
     {
         SystemConfig = CharacterFileController.LoadFile<SystemConfig>("System.config.json", SystemConfig);
         
-        PluginLog.Debug($"[NoTankYouSystem] Logging into character: {Service.ClientState.LocalPlayer?.Name}, updating System.config.json");
+        Service.Log.Debug($"[NoTankYouSystem] Logging into character: {Service.ClientState.LocalPlayer?.Name}, updating System.config.json");
 
         SystemConfig.CharacterName = Service.ClientState.LocalPlayer?.Name.ToString() ?? "Unable to Read Name";
         SystemConfig.CharacterWorld = Service.ClientState.LocalPlayer?.HomeWorld.GameData?.Name.ToString() ?? "Unable to Read World";

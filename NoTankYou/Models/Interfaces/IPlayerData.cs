@@ -9,7 +9,6 @@ public unsafe interface IPlayerData
 {
     // Interface Members
     bool HasStatus(uint statusId);
-
     uint GetObjectId();
     byte GetLevel();
     byte GetClassJob();
@@ -39,8 +38,7 @@ public unsafe interface IPlayerData
     bool HasPet()
         => Service.ObjectTable
             .Where(obj => obj.OwnerId == GetObjectId())
-            .Where(obj => obj.ObjectKind is ObjectKind.BattleNpc)
-            .Where(obj => (obj as BattleNpc)?.SubKind == (byte) BattleNpcSubKind.Pet)
+            .Where(obj => obj is BattleNpc { SubKind: (byte) BattleNpcSubKind.Pet })
             .Any();
     
     // Internal Helpers
