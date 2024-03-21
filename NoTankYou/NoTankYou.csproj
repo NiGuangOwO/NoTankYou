@@ -19,16 +19,6 @@
 		<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 	</PropertyGroup>
 
-	<Target Name="GetGitHash" BeforeTargets="GetAssemblyVersion" Returns="InformationalVersion">
-		<Exec Command="git rev-parse --short HEAD" ConsoleToMSBuild="true" StandardOutputImportance="low">
-			<Output TaskParameter="ConsoleOutput" PropertyName="GitCommitHash" />
-		</Exec>
-
-		<PropertyGroup>
-			<InformationalVersion>$(GitCommitHash)</InformationalVersion>
-		</PropertyGroup>
-	</Target>
-
 	<PropertyGroup>
 		<DalamudLibPath>E:\xivlauncher-cn\XIVLauncherCN\Roaming\addon\Hooks\dev\</DalamudLibPath>
 	</PropertyGroup>
